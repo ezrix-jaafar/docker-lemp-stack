@@ -16,7 +16,7 @@ services:
     nginx:
         image: nginx:latest
         ports:
-            - 80:80
+            - 88:80
         links:
             - 'php'
         volumes:
@@ -25,11 +25,11 @@ services:
         depends_on:
             - php
 
-    # mysql Service
+    # MariaDB Service
     mariadb:
-        image: mysql:5.7.43
+        image: mariadb:10.9
         environment:
-            MYSQL_ROOT_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: your_password
         volumes:
             - mysqldata:/var/lib/mysql
 
@@ -37,7 +37,7 @@ services:
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:latest
         ports:
-            - 8060:80
+            - 8020:80
         environment:
             PMA_HOST: mariadb
         depends_on:
