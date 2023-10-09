@@ -6,7 +6,7 @@ services:
     # PHP Service
     php:
         build:
-            dockerfile: php-dockerfile
+            dockerfile: dockerfile
         volumes:
             - './php-files:/var/www/html'
         depends_on:
